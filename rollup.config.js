@@ -3,22 +3,27 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
+import postcss from 'rollup-plugin-postcss'
 
 const production = !process.env.ROLLUP_WATCH
 
 export default {
   input: 'src/main.js',
   output: {
-    sourcemap: !production,
+    sourcemap: true,
     format: 'iife',
     name: 'app',
     file: 'public/bundle.js'
   },
   plugins: [
+    postcss({
+      plugins: [],
+      extract: true
+    }),
     svelte({
       dev: !production,
       css: css => {
-        css.write('public/bundle.css')
+        css.write('public/modules.css')
       }
     }),
     // If you have external dependencies installed from
