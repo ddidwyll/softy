@@ -2,26 +2,37 @@
   "name": "softy",
   "version": "0.0.1",
   "devDependencies": {
+    "eslint": "^6.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-svelte3": "^2.0.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "prettier-plugin-svelte": "^0.6.0",
     "rollup": "^1.10.1",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^4.0.4",
+    "sirv-cli": "^0.4.4",
     "svelte": "^3.0.0"
-  },
-  "dependencies": {
-    "sirv-cli": "^0.4.4"
   },
   "scripts": {
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
     "start": "sirv public --single",
-    "start:dev": "sirv public --single --dev"
+    "start:dev": "sirv public --single --dev",
+    "lint": "eslint --ext .js,.html,.svelte src",
+    "fix": "eslint --fix --ext .js,.html,.svelte src",
+    "format": "prettier --write --plugin-search-dir=. ./src/**/*.svelte; prettier --write ./src/**/*.js"
   },
-  "description": "*Psst \u0014�looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*",
+  "description": "",
   "main": "rollup.config.js",
   "repository": {
     "type": "git",

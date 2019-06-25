@@ -1,5 +1,13 @@
 <script>
-	let name = 'wor ld';
+  let name = 'unknown'
 </script>
 
-<h1>Hello {name}!</h1>
+<p>this is {name}</p>
+<button
+  on:click={() => {
+    name = 'new'
+  }}>
+  new
+</button>
+<button on:click={() => (name = 'other')}>other</button>
+<button on:click={() => (name = 'unknown')}>reset</button>
