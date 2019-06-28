@@ -1,6 +1,6 @@
 module.exports = {
   trailingComma: "none",
-  printWidth: 100,
+  printWidth: 78,
   quoteProps: 'consistent',
   bracketSpacing: true,
   jsxBracketSameLine: true,
