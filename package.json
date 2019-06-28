@@ -32,7 +32,7 @@
     "start:dev": "sirv public --single --dev",
     "lint": "eslint --ext .js,.html,.svelte src",
     "fix": "eslint --fix --ext .js,.html,.svelte src",
-    "format": "prettier --write --plugin-search-dir=. ./src/**/*.svelte; prettier --write ./src/**/*.js"
+    "format": "prettier --write --svelte-sort-order markup-scripts-styles --svelte-strict-mode true --plugin-search-dir=. ./src/**/*.svelte; prettier --write ./src/**/*.js"
   },
   "description": "",
   "main": "rollup.config.js",
