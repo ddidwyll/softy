@@ -23,7 +23,7 @@ module.exports = {
       'processor': 'svelte3/svelte3',
       'rules': {
         'no-unused-expressions': 0,
-        'no-return-assign': 0,
+        'import/first': 0,
         'eol-last': 0
       }
     }
