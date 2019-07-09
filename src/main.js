@@ -1,4 +1,4 @@
-import 'forui/themes/default.css'
+import 'forui/themes/default.scss'
 import App from './App.svelte'
 
 var app = new App({

@@ -1,41 +1,44 @@
 <Header>
   <h1 slot="left">{title}</h1>
+  <div slot="center">
+    <Input
+      on:input={e => router.go({ query: e.detail })}
+      value={$router.query}
+      label="Search"
+      valid={$router.query === 'cheat'}
+      error={$router.query === 'error'}
+      clean />
+  </div>
   <nav slot="right">
     <BtnGroup>
-      <Button icon active={$tmp === 'a'} on:click={() => ($tmp = 'a')}>
+      <Button icon flat clean on:click={() => ($tmp = 'a')}>
         <ActionToday />
       </Button>
-      <Button icon active={$tmp === 'b'} on:click={() => ($tmp = 'b')}>
-        <ActionVisibility />
+      <Button icon flat clean on:click={() => ($tmp = 'b')}>
+        <ActionDone />
       </Button>
-      <Button icon active={$tmp === 'c'} on:click={() => ($tmp = 'c')}>
-        <ActionVisibilityOff />
+      <Button icon flat clean on:click={() => ($tmp = 'c')}>
+        <ActionSearch />
       </Button>
     </BtnGroup>
   </nav>
 </Header>
 
 <Main>
-  <ActionDone />
-  <ActionSearch />
-  <ActionToday />
-  <pre>{JSON.stringify($router, null, 2)}</pre>
-  <a href="#main?id=12345">main_123</a>
-  <a href="#main">main</a>
-  <a href="#orders?view=1234">orders_1234</a>
-  <a href="#orders">orders</a>
+  <pre>$router: {JSON.stringify($router, null, 2)}</pre>
+  <br />
+  <Order />
 </Main>
 
 <script>
   import { tmp, title } from './stores/app.js'
-  import { Header, Button, Main, BtnGroup } from 'forui'
+  import { Header, Input, Button, Main, BtnGroup } from 'forui'
+  import Order from './Order.svelte'
   import router from 'svelte-router'
   import {
     ActionDone,
     ActionSearch,
-    ActionToday,
-    ActionVisibility,
-    ActionVisibilityOff
+    ActionToday
   } from 'svelte-material-icons'
 </script>
 

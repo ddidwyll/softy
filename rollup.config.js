@@ -3,7 +3,8 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
-import postcss from 'rollup-plugin-postcss'
+import { scss } from 'svelte-preprocess'
+import sass from 'rollup-plugin-scss'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -16,21 +17,15 @@ export default {
     file: 'public/bundle.js'
   },
   plugins: [
-    postcss({
-      plugins: [],
-      extract: true
-    }),
     svelte({
       dev: !production,
-      css: css => {
-        css.write('public/modules.css')
-      }
+      emitCss: true,
+      preprocess: [ scss() ]
+      // css: css => {
+        // css.write('public/modules.css')
+      // }
     }),
-    // If you have external dependencies installed from
-    // npm, you'll most likely need these plugins. In
-    // some cases you'll need additional configuration 
-    // consult the documentation for details:
-    // https://github.com/rollup/rollup-plugin-commonjs
+    sass(),
     resolve({ browser: true }),
     commonjs(),
     !production && livereload('public'),
