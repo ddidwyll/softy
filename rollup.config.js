@@ -3,7 +3,6 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
-import { scss } from 'svelte-preprocess'
 import sass from 'rollup-plugin-scss'
 
 const production = !process.env.ROLLUP_WATCH
@@ -20,10 +19,7 @@ export default {
     svelte({
       dev: !production,
       emitCss: true,
-      preprocess: [ scss() ]
-      // css: css => {
-        // css.write('public/modules.css')
-      // }
+      css: () => {}
     }),
     sass(),
     resolve({ browser: true }),

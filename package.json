@@ -2,6 +2,7 @@
   "name": "softy",
   "version": "0.0.1",
   "devDependencies": {
+    "@csstools/postcss-sass": "^4.0.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-compat": "^3.2.0",
@@ -26,7 +27,6 @@
     "svelte": "^3.6.5",
     "svelte-material-icons": "file:~/svelte-material-icons",
     "svelte-persist": "file:~/svelte-persist",
-    "svelte-preprocess": "^2.14.4",
     "svelte-router": "file:~/svelte-router"
   },
   "scripts": {
